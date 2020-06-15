@@ -3,8 +3,13 @@ package tw.edu.pu.s1063680.little_earth;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import java.util.Random;
 
 public class GameActivity3 extends AppCompatActivity {
 
@@ -22,6 +27,62 @@ public class GameActivity3 extends AppCompatActivity {
 
         //設定螢幕為橫式
         setContentView(R.layout.activity_game3);
+        Button button10 = findViewById(R.id.button10);//给按钮rollButton设置点击监听器，一旦用户点击按钮，就触发监听器的onClick方法
+        button10.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+//                产生随机数
+                Random rand = new Random();
+                int randNumber = rand.nextInt(10) + 1;
+//                String randNumber2 = rand.nextInt(10)+1;
+
+//                获取对ImageView对象的引用
+                ImageView diceImage = findViewById(R.id.imageView12);
+
+                int drawableResource;
+//                将随机数与对应的图片资源联系起来
+                switch (randNumber) {
+                    case 1:
+                        drawableResource = R.drawable.paper;
+                        break;
+                    case 2:
+                        drawableResource = R.drawable.box;
+                        break;
+                    case 3:
+                        drawableResource = R.drawable.carton;
+                        break;
+                    case 4:
+                        drawableResource = R.drawable.chopsticks;
+                        break;
+                    case 5:
+                        drawableResource = R.drawable.smoke;
+                        break;
+                    case 6:
+                        drawableResource = R.drawable.apple;
+                        break;
+                    case 7:
+                        drawableResource = R.drawable.bag;
+                        break;
+                    case 8:
+                        drawableResource = R.drawable.banana;
+                        break;
+                    case 9:
+                        drawableResource = R.drawable.bottle;
+                        break;
+                    case 10:
+                        drawableResource = R.drawable.toast;
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + randNumber);
+                }
+
+//                随机图片根据rangNumber的值对应drawableResource的int值，实例Drawable类
+                Drawable drawable = getBaseContext().getResources().getDrawable(drawableResource);
+
+//                设置ImageView控件最终显示的图片
+                diceImage.setImageDrawable(drawable);
+            }
+        });
     }
     public void backgame(View v){
         Intent it = new Intent();
