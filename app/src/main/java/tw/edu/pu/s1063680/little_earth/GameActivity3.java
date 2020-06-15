@@ -83,7 +83,7 @@ public class GameActivity3 extends AppCompatActivity {
                 diceImage.setImageDrawable(drawable);
             }
         });
-    } 
+    }
     public void backgame(View v){
         Intent it = new Intent();
         it.setClass(this, GameActivity1.class);
