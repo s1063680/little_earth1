@@ -7,19 +7,39 @@
     android:background="@drawable/b"
     tools:context=".GameActivity2">
 
+    <ImageView
+        android:id="@+id/dice_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="133dp"
+        android:layout_marginLeft="133dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginBottom="122dp"
+        android:src="@drawable/empty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="返回選單"
+        android:layout_width="128dp"
+        android:layout_height="63dp"
         android:onClick="backgame"
+        android:text="返回選單"
+        android:textSize="24sp"
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="13dp" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="153dp"
-        android:layout_height="148dp"
+        android:layout_width="176dp"
+        android:layout_height="142dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="80dp"
@@ -30,22 +50,41 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button7"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/tr1" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="163dp"
-        android:layout_height="148dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="33dp"
+        android:layout_width="158dp"
+        android:layout_height="141dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="131dp"
-        android:layout_marginEnd="366dp"
-        android:layout_marginRight="366dp"
+        android:layout_marginEnd="430dp"
+        android:layout_marginRight="430dp"
         android:layout_marginBottom="132dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.535"
         app:srcCompat="@drawable/tr4" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="131dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="574dp"
+        android:layout_marginLeft="574dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginRight="159dp"
+        android:layout_marginBottom="16dp"
+        android:text="產生垃圾"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dice_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
