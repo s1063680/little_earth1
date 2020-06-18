@@ -1,8 +1,10 @@
 package tw.edu.pu.s1063680.little_earth;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.SoundPool;
@@ -11,15 +13,40 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
-
+import android.widget.TextView;
 import java.util.Random;
 
-public class GameActivity2 extends AppCompatActivity {
+public class GameActivity2 extends AppCompatActivity implements DialogInterface.OnClickListener
+{
     Random rand = new Random();
     int randNumber;
-    int score = 0;
+    int counter ;
+    ImageView imageView14;
     private SoundPool soundPool;
     private int soundID,soundID2;
+    @Override
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (i == DialogInterface.BUTTON_POSITIVE){
+            ImageView image14 = (ImageView) findViewById(R.id.imageView14);
+            image14.setImageResource(R.drawable.empty);
+            //再玩一次，設定遊戲初始值
+            counter=0;
+            //設定全螢幕顯示
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+        else if (i == DialogInterface.BUTTON_NEGATIVE) {
+            Intent it = new Intent();
+            it.setClass(this, GameActivity5.class);
+            startActivity(it);
+            finish();
+        }
+    }
     @SuppressLint("NewApi")
     private void initSound(){
         soundPool = new SoundPool.Builder().build();
@@ -50,6 +77,7 @@ public class GameActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        counter=0;
         initSound();
         //設定全螢幕顯示
         View decorView = getWindow().getDecorView();
@@ -115,16 +143,13 @@ public class GameActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
                 arg0.bringToFront();
-
                 boolean clickTrashCan = false;
-
                 // 按下按鈕,來切換圖片
                 if (!clickTrashCan) {
-
                     if (randNumber == 1 || randNumber == 4 || randNumber == 5) {
                         image14.setImageResource(R.drawable.correct);
                         playSound();
-                        score++;
+                        counter++;
                         clickTrashCan = true;
                     }else {
                         image14.setImageResource(R.drawable.error);
@@ -132,10 +157,7 @@ public class GameActivity2 extends AppCompatActivity {
                         clickTrashCan = false;
                     }
                 }
-                if(score==3){
-
-                }
-
+                if(counter==3) GameOver();
             }
 
         });
@@ -145,15 +167,15 @@ public class GameActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
                 arg0.bringToFront();
-
                 boolean clickTrashCan = false;
-
+                if(clickTrashCan==true)imageView14.setOnClickListener(this);
                 // 按下按鈕,來切換圖片
                 if (!clickTrashCan) {
 
                     if (randNumber == 2 || randNumber == 3) {
                         image14.setImageResource(R.drawable.correct);
                         playSound();
+                        counter++;
                         clickTrashCan = true;
                     }else {
                         image14.setImageResource(R.drawable.error);
@@ -161,10 +183,23 @@ public class GameActivity2 extends AppCompatActivity {
                         clickTrashCan = false;
                     }
                 }
+                if(counter==3) GameOver();
             }
 
         });
         }
+    //遊戲結束處理
+    public void GameOver(){
+        //遊戲結束處理
+        new AlertDialog.Builder(this)
+                .setTitle("恭喜過關")
+                .setMessage("目前分數:" + String.valueOf(counter))
+                .setIcon(R.drawable.earthicon)
+                .setPositiveButton("再玩一次", this)
+                .setNegativeButton("進度表", this)
+                .show();
+    }
+
     public void backgame (View v){
             Intent it = new Intent();
             it.setClass(this, GameActivity1.class);

@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/earth0"
-    tools:context=".GameActivity">
+    android:background="@drawable/earth100"
+    tools:context=".GameActivity7">
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="210dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="300dp"
-        android:background="@drawable/startgame"
+        android:id="@+id/button26"
+        android:layout_width="231dp"
+        android:layout_height="110dp"
+        android:background="@drawable/empty"
+        android:text="重新開始遊戲"
+        android:textColor="#F156E1"
         android:onClick="startgame1"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintHorizontal_bias="0.993"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintVertical_bias="0.021" />
 </androidx.constraintlayout.widget.ConstraintLayout>
