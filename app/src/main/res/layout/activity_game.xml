@@ -4,25 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/earth0"
+    android:background="@drawable/empty"
     tools:context=".GameActivity">
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="218dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="600dp"
-        android:layout_marginLeft="600dp"
+        android:layout_width="210dp"
+        android:layout_height="0dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
         android:layout_marginBottom="300dp"
         android:background="@drawable/startgame"
         android:onClick="startgame1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.948"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="867dp"
+        android:layout_height="427dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/empty" />
 </androidx.constraintlayout.widget.ConstraintLayout>

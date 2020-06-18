@@ -41,4 +41,10 @@ public class GameActivity1 extends AppCompatActivity {
         startActivity(it);
         finish();
     }
+    public void backearth(View v){
+        Intent it = new Intent();
+        it.setClass(this, GameActivity.class);
+        startActivity(it);
+        finish();
+    }
 }
